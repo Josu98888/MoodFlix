@@ -110,11 +110,18 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-pressed', 'true');
       btn.classList.add('mood-btn--active');
 
-      /* Aplicar el tema visual */
+      /* Aplicar el tema visual y guardar */
+      localStorage.setItem('savedMood', mood);
       applyTheme(mood);
     });
   });
 
   /* ── 3. APLICAR TEMA INICIAL (feliz, por defecto) ───────────── */
-  applyTheme('feliz');
+    const savedMood = localStorage.getItem('savedMood');
+  if(savedMood === null){
+    applyTheme('feliz');
+  }
+  else{
+    applyTheme(savedMood);
+  }
 });
