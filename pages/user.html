@@ -1,33 +1,68 @@
 <!DOCTYPE html>
-<html lang='es'>
+<html lang="es">
 
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Perfil - Moodflix</title>
-    <link rel='stylesheet' href='../assets/css/user.css'>
+    <link rel="stylesheet" href="../assets/css/user.css">
 </head>
-<body>
-    <header>
-        <img src="" alt="Foto de perfil" id="profile-pic">
-        <h1>Perfil de Usuario</h1>
-        <h2 id="mood-title"></h2>
-    </header>
 
-    <main>
-        <h2>Como estas hoy?</h2>
-            <ul>
-                <li><button id="happy">Alegre</button></li>
-                <li><button id="sad">Triste</button></li>
-                <li><button id="neutral">Neutro</button></li>
-                <li><button id="angry">Enojado</button></li>
-                <li><button id="anxius">Ansioso</button></li>
-                <li><button id="relax">Relajado</button></li>
-            </ul>
-        <h2>Mis favoritos</h2>
-        <ul id="fav-list"></ul>
+<body>
+    <main class="profile" id="main-content">
+        <header class="profile__header">
+            <div class="profile__avatar" id="profile-pic" aria-hidden="true">M</div>
+            <p class="profile__eyebrow">Moodflix profile</p>
+            <h1>Perfil de Usuario</h1>
+            <p id="mood-title" class="profile__mood" aria-live="polite">Elegí cómo te sentís hoy</p>
+        </header>
+
+        <section class="mood-panel" aria-labelledby="mood-heading">
+            <div class="section-heading">
+                <p class="section-heading__eyebrow">Estado de ánimo</p>
+                <h2 id="mood-heading">¿Cómo estás hoy?</h2>
+            </div>
+
+            <div class="mood-grid" id="mood-options" role="group" aria-label="Opciones de estado de ánimo">
+                <button class="mood-btn" type="button" data-mood="feliz" aria-pressed="false">
+                    <span class="mood-btn__emoji" aria-hidden="true">😊</span>
+                    <span class="mood-btn__label">Feliz</span>
+                </button>
+                <button class="mood-btn" type="button" data-mood="melancolico" aria-pressed="false">
+                    <span class="mood-btn__emoji" aria-hidden="true">🌧️</span>
+                    <span class="mood-btn__label">Melancólico</span>
+                </button>
+                <button class="mood-btn" type="button" data-mood="energetico" aria-pressed="false">
+                    <span class="mood-btn__emoji" aria-hidden="true">⚡</span>
+                    <span class="mood-btn__label">Energético</span>
+                </button>
+                <button class="mood-btn" type="button" data-mood="relajado" aria-pressed="false">
+                    <span class="mood-btn__emoji" aria-hidden="true">🌙</span>
+                    <span class="mood-btn__label">Relajado</span>
+                </button>
+                <button class="mood-btn" type="button" data-mood="inspirado" aria-pressed="false">
+                    <span class="mood-btn__emoji" aria-hidden="true">✨</span>
+                    <span class="mood-btn__label">Inspirado</span>
+                </button>
+                <button class="mood-btn" type="button" data-mood="nostalgico" aria-pressed="false">
+                    <span class="mood-btn__emoji" aria-hidden="true">🎞️</span>
+                    <span class="mood-btn__label">Nostálgico</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="history-panel" aria-labelledby="history-heading">
+            <div class="section-heading">
+                <p class="section-heading__eyebrow">Últimos registros</p>
+                <h2 id="history-heading">Historial emocional</h2>
+            </div>
+            <ul id="mood-history" class="history-list" aria-label="Últimos estados de ánimo"></ul>
+        </section>
+
+        <p id="mood-announcement" class="sr-only" aria-live="polite"></p>
     </main>
-    
-    <script src='../assets/js/user.js'></script>
+
+    <script src="../assets/js/user.js"></script>
 </body>
+
 </html>
