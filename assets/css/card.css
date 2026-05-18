@@ -160,6 +160,38 @@
   text-align: right;
 }
 
+/* ---- boton favorito ---- */
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.08);
+}
+
+.favorite-btn.active {
+  background: rgb(255, 0, 85);
+}
+
+.favorite-btn.active svg {
+  fill: currentColor;
+}
+
 /* ---- 480px: cards en 3 col en mobile grande ---- */
 @media (min-width: 480px) {
   .cards-grid {
