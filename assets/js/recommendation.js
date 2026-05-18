@@ -30,11 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const allResults = await fetchRecommendations(selectedMoodValue);
+
       const filteredResults = allResults
-        .filter(item => selectedTimeValue === 120 ? true : item.durationMin <= selectedTimeValue)
+        .filter(item =>
+          selectedTimeValue === 120
+            ? true
+            : item.durationMin <= selectedTimeValue
+        )
         .sort((a, b) => b.durationMin - a.durationMin);
 
       renderCards(filteredResults);
+
     } catch (error) {
       console.error('Error al consultar la API:', error);
       renderError(error);
@@ -45,13 +51,89 @@ document.addEventListener('DOMContentLoaded', () => {
   // Delegación de eventos: Eliminar tarjeta
   // ----------------------------------------------------------------
   document.addEventListener('click', (e) => {
+
     const dismissBtn = e.target.closest('.card__dismiss-btn');
+
     if (dismissBtn) {
+
       const card = dismissBtn.closest('.card');
+
       card.style.transform = 'scale(0.9)';
       card.style.opacity = '0';
       card.style.transition = 'all 0.3s ease';
+
       setTimeout(() => card.remove(), 300);
     }
+
   });
+
+  // ----------------------------------------------------------------
+  // Delegación de eventos: Favoritos
+  // ----------------------------------------------------------------
+
+  const FAVORITES_KEY = 'favorites';
+
+  // GETTER de favoritos
+  function getFavorites() {
+    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+  }
+
+  // SETTER de favoritos
+  function saveFavorites(favorites) {
+    localStorage.setItem(
+      FAVORITES_KEY,
+      JSON.stringify(favorites)
+    );
+  }
+
+  // Añade o elimina el item de favoritos
+  function toggleFavorite(item) {
+
+    const favorites = getFavorites();
+    const exists = favorites.some(
+      fav => fav.favoriteId === item.favoriteId
+    );
+
+    let updatedFavorites;
+
+    if (exists) {
+      updatedFavorites = favorites.filter(
+        fav => fav.favoriteId !== item.favoriteId
+      );
+
+    }
+    else {
+
+      updatedFavorites = [
+        ...favorites,
+        item
+      ];
+    }
+
+    saveFavorites(updatedFavorites);
+    return !exists;
+  }
+
+  // Revisar si usuario clickea en botón de favorito
+  document.addEventListener('click', (e) => {
+
+    const favoriteBtn = e.target.closest('.favorite-btn');
+
+    if (!favoriteBtn) return;
+
+    const itemData = favoriteBtn.dataset.item;
+
+    if (!itemData) return;
+
+    const item = JSON.parse(itemData);
+
+    const isNowFavorite = toggleFavorite(item);
+
+    favoriteBtn.classList.toggle(
+      'active',
+      isNowFavorite
+    );
+
+  });
+
 });
