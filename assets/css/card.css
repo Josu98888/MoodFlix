@@ -1,0 +1,192 @@
+/* ----------------------------------------------------------------
+   5. GRID DE RESULTADOS
+---------------------------------------------------------------- */
+.results {
+  padding: var(--space-2xl) var(--space-lg);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.results__header {
+  margin-bottom: var(--space-xl);
+}
+
+.results__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+}
+
+.results__subtitle {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+.results__subtitle strong { color: var(--color-accent); }
+
+/* Grid de cards: mobile → 2 col, desktop → 3 col */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+/* ---- Card ---- */
+.card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: var(--shadow-card), 0 0 24px rgba(182,109,255,0.15);
+  border-color: rgba(182,109,255,0.3);
+}
+/* Card destacada */
+.card--featured {
+  border-color: rgba(182,109,255,0.4);
+  box-shadow: var(--shadow-card), 0 0 20px rgba(182,109,255,0.2);
+}
+
+.card__image-wrap {
+  position: relative;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.card:hover .card__image { transform: scale(1.06); }
+
+/* Gradiente overlay inferior */
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(9, 9, 15, 0.85) 100%
+  );
+}
+
+/* Badges */
+.card__badge {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+.card__badge--cinema {
+  background: rgba(255, 179, 71, 0.2);
+  color: var(--color-amber);
+  border: 1px solid rgba(255, 179, 71, 0.3);
+}
+.card__badge--music {
+  background: var(--color-neon-dark);
+  color: var(--color-neon);
+  border: 1px solid rgba(0, 245, 196, 0.3);
+}
+
+/* Tag Destacado */
+.card__featured-tag {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: rgba(182, 109, 255, 0.2);
+  color: var(--color-accent);
+  border: 1px solid rgba(182, 109, 255, 0.35);
+  z-index: 1;
+}
+
+/* Cuerpo de la card */
+.card__body {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.card__duration {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.card__genre {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+/* ---- 480px: cards en 3 col en mobile grande ---- */
+@media (min-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  /* Mood grid 6 col en una fila */
+  .mood-grid {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 100%;
+  }
+
+}
+/* ---- 1024px: desktop ---- */
+@media (min-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+
+}
+
+/* ---- 1280px: wide desktop ---- */
+@media (min-width: 1280px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
