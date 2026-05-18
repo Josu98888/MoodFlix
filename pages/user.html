@@ -10,9 +10,21 @@
 
 <body>
     <main class="profile" id="main-content">
+
+        <nav class="profile-nav" aria-label="Navegación del perfil">
+            <a href="../index.html" class="profile-nav__back" aria-label="Volver al inicio">
+                <span class="profile-nav__arrow" aria-hidden="true">←</span>
+             </a>
+
+             <a href="../index.html" class="profile-nav__logo" aria-label="Moodflix - Ir al inicio">
+                 <span class="profile-nav__logo-icon" aria-hidden="true">◈</span>
+                 <span class="profile-nav__logo-text">Moodflix</span>
+            </a>
+        </nav>
+
         <header class="profile__header">
             <div class="profile__avatar" id="profile-pic" aria-hidden="true">M</div>
-            <p class="profile__eyebrow">Moodflix profile</p>
+            <p class="profile__eyebrow"></p>
             <h1>Perfil de Usuario</h1>
             <p id="mood-title" class="profile__mood" aria-live="polite">Elegí cómo te sentís hoy</p>
         </header>
