@@ -9,6 +9,7 @@
     <title>Moodflix</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/card.css">
 </head>
 
 <body>
@@ -156,12 +157,25 @@
 
                     <!-- CTA -->
                     <button type="submit" class="cta-btn" aria-label="Generar recomendaciones personalizadas">
-                        <a href="/recommendations" class="cta-btn__text">¡Generar Recomendación!</a>
+                        <span class="cta-btn__text">¡Generar Recomendación!</span>
                         <span class="cta-btn__icon" aria-hidden="true">→</span>
                     </button>
 
                 </form>
             </div><!-- /.hero__content -->
+        </section>
+
+        <!-- grid de resultados -->
+         <section class="results" aria-labelledby="results-heading" hidden>
+            <div class="results__header">
+                <h2 id="results-heading" class="results__title">Para vos, ahora</h2>
+                <p class="results__subtitle">Basado en tu estado de ánimo <strong id="results-mood-label">Feliz</strong>
+                    · 30
+                    min</p>
+            </div>
+
+            <ul class="cards-grid" role="list" aria-label="Recomendaciones de contenido">
+            </ul>
         </section>
 
     </main>
@@ -192,6 +206,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/main.js" type="module" defer></script>
+    <script src="assets/js/recommendation.js" defer></script>
 </body>
 
 </html>
