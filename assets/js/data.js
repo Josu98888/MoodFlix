@@ -1,3 +1,4 @@
+// Archivo de datos y constantes para la aplicación
 export const MOOD_THEMES = {
   feliz: {
     label: 'Feliz 😊',
@@ -102,3 +103,13 @@ export const MOOD_THEMES = {
     orbColors:   ['#92400e', '#b45309', '#d97706'],
   },
 };
+
+// Mapa de Mood → término de búsqueda en iTunes
+export const MOOD_SEARCH_MAP = {
+    feliz: 'happy pop',
+    melancolico: 'melancholy acoustic',
+    energetico: 'workout energetic',
+    inspirado: 'inspirational',
+    relajado: 'chill lofi',
+    nostalgico: '80s retro classics',
+  };
