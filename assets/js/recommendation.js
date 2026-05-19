@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ----------------------------------------------------------------
   // Delegación de eventos: Favoritos
   // ----------------------------------------------------------------
-  
-  // Revisar si usuario clickea en botón de favorito
   document.addEventListener('click', (e) => {
 
     const favoriteBtn = e.target.closest('.favorite-btn');

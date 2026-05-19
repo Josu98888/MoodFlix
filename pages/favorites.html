@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/card.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+</head>
+<body>
+        <!-- nabvar -->
+    <header class="navbar" role="banner">
+        <div class="navbar__inner">
+
+            <!-- Logo -->
+            <a href="/" class="navbar__logo" aria-label="Moodflix — Ir al inicio">
+                <span class="logo__icon" aria-hidden="true">◈</span>
+                <span class="logo__text">Moodflix</span>
+            </a>
+
+            <!-- Buscador -->
+            <div class="navbar__search" role="search">
+                <label for="search-input" class="sr-only">Buscar películas o música</label>
+                <input id="search-input" type="search" class="search__input" placeholder="Buscar títulos, géneros…"
+                    aria-label="Buscar películas o música" autocomplete="off" />
+                <button class="search__btn" aria-label="Ejecutar búsqueda">
+                    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navegación desktop -->
+            <nav class="navbar__nav" aria-label="Navegación principal">
+                <ul class="nav__list" role="list">
+                    <li><a href="/pages/index.html" class="nav__link">Inicio</a></li>
+                    <li><a href="/pages/favorites.html" class="nav__link nav__link--active" aria-current="page">Favoritos</a></li>
+                    <li><a href="/pages/user.html" class="nav__link">Perfil</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botón hamburguesa (mobile) -->
+            <button class="navbar__hamburger" id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false"
+                aria-label="Abrir menú de navegación">
+                <span class="hamburger__bar"></span>
+                <span class="hamburger__bar"></span>
+                <span class="hamburger__bar"></span>
+            </button>
+
+        </div><!-- /.navbar__inner -->
+
+        <!-- Menú mobile desplegable -->
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil" hidden>
+            <ul class="mobile-menu__list" role="list">
+                <li><a href="/pages/index.html" class="mobile-menu__link">Inicio</a></li>
+                <li><a href="/pages/favorites.html" class="mobile-menu__link" aria-current="page">Favoritos</a></li>
+                <li><a href="/pages/user.html" class="mobile-menu__link">Perfil</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="results">
+            <h1 class="favorites__title">Tus Favoritos</h1>
+            <div id="favorites-container" class="favorites__container">
+                <ul class="cards-grid"></ul>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="/assets/js/favorite.js"></script>
+</body>
+</html>
