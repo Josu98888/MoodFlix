@@ -1,5 +1,6 @@
 import { fetchRecommendations } from './api.js';
 import { renderCards, renderError, setLoading } from './render-html.js';
+import { toggleFavorite } from './favorite-handler.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.filters');
@@ -70,50 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ----------------------------------------------------------------
   // Delegación de eventos: Favoritos
   // ----------------------------------------------------------------
-
-  const FAVORITES_KEY = 'favorites';
-
-  // GETTER de favoritos
-  function getFavorites() {
-    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
-  }
-
-  // SETTER de favoritos
-  function saveFavorites(favorites) {
-    localStorage.setItem(
-      FAVORITES_KEY,
-      JSON.stringify(favorites)
-    );
-  }
-
-  // Añade o elimina el item de favoritos
-  function toggleFavorite(item) {
-
-    const favorites = getFavorites();
-    const exists = favorites.some(
-      fav => fav.favoriteId === item.favoriteId
-    );
-
-    let updatedFavorites;
-
-    if (exists) {
-      updatedFavorites = favorites.filter(
-        fav => fav.favoriteId !== item.favoriteId
-      );
-
-    }
-    else {
-
-      updatedFavorites = [
-        ...favorites,
-        item
-      ];
-    }
-
-    saveFavorites(updatedFavorites);
-    return !exists;
-  }
-
+  
   // Revisar si usuario clickea en botón de favorito
   document.addEventListener('click', (e) => {
 
@@ -133,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
       'active',
       isNowFavorite
     );
-
   });
 
 });
