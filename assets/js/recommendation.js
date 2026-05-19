@@ -1,5 +1,6 @@
 import { fetchRecommendations } from './api.js';
 import { renderCards, renderError, setLoading } from './render-html.js';
+import { toggleFavorite } from './favorite-handler.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.filters');
@@ -54,4 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => card.remove(), 300);
     }
   });
+
+  // ----------------------------------------------------------------
+  // Delegación de eventos: Favoritos
+  // ----------------------------------------------------------------
+  document.addEventListener('click', (e) => {
+
+    const favoriteBtn = e.target.closest('.favorite-btn');
+
+    if (!favoriteBtn) return;
+
+    const itemData = favoriteBtn.dataset.item;
+
+    if (!itemData) return;
+
+    const item = JSON.parse(itemData);
+
+    const isNowFavorite = toggleFavorite(item);
+
+    favoriteBtn.classList.toggle(
+      'active',
+      isNowFavorite
+    );
+  });
+
 });
