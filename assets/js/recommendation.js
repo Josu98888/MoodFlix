@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setLoading();
 
     try {
-      const allResults = await fetchRecommendations(selectedMoodValue);
+      const allResults = await fetchRecommendations(selectedMoodValue, selectedTimeValue);
 
       const filteredResults = allResults
         .filter(item =>

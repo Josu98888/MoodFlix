@@ -113,3 +113,13 @@ export const MOOD_SEARCH_MAP = {
     relajado: 'chill lofi',
     nostalgico: '80s retro classics',
   };
+
+// Mapa de Mood → tags de películas de Studio Ghibli para búsqueda en TMDb
+ export const MOOD_GHIBLI_MAP = {
+  feliz:      ['joy', 'adventure', 'friends', 'fun', 'magic'],
+  triste:     ['loss', 'sad', 'lonely', 'grief', 'memory'],
+  energico:   ['war', 'battle', 'action', 'courage', 'fight'],
+  relajado:   ['peaceful', 'nature', 'quiet', 'journey', 'gentle'],
+  romantico:  ['love', 'romance', 'heart', 'dream', 'tender'],
+  nostalgico: ['childhood', 'memory', 'past', 'wonder', 'spirit'],
+};
