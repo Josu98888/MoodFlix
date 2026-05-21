@@ -1,0 +1,111 @@
+@media (min-width: 0) {
+  /* BLOQUEA SCROLL */
+  body.intro-active {
+    overflow: hidden;
+  }
+
+  /* CAPA DE INTRO */
+  .intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+      opacity 1s ease,
+      visibility 1s ease;
+  }
+
+  /* OCULTAR INTRO */
+  .intro.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* LOGO */
+  .intro__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    text-decoration: none;
+
+    transform: scale(0.7);
+    animation: introZoom 2.5s ease forwards;
+  }
+
+  /* ICONO INTRO */
+  .intro__icon {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+
+  /* TEXTO INTRO */
+  .intro__title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    text-transform: uppercase;
+
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 30px rgba(255, 255, 255, 0.3);
+  }
+
+  /* ANIMACIÓN */
+  @keyframes introZoom {
+    0% {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+
+    40% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .intro__logo {
+    gap: 1.5rem;
+  }
+
+  .intro__icon {
+    font-size: 5rem;
+  }
+
+  .intro__title {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro__logo {
+    gap: 2rem;
+  }
+
+  .intro__icon {
+    font-size: 7rem;
+  }
+
+  .intro__title {
+    font-size: 7rem;
+  }
+}
