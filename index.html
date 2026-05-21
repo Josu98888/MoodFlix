@@ -1,212 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Moodflix — Descubrí películas y música según tu estado de ánimo y tiempo disponible." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Moodflix — Descubrí películas y música según tu estado de ánimo y tiempo disponible."
+    />
     <title>Moodflix</title>
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
-    <link rel="stylesheet" href="/assets/css/card.css">
-</head>
+    <link rel="stylesheet" href="/assets/css/card.css" />
+    <link rel="stylesheet" href="/assets/css/logo.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- INTRO -->
+    <div id="intro" class="intro">
+      <div class="intro__content">
+        <a href="/" class="intro__logo" aria-label="Moodflix — Ir al inicio">
+          <span class="intro__icon" aria-hidden="true">◈</span>
+          <span class="intro__title">Moodflix</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="introSound" preload="auto">
+      <source src="./assets/sound/intro.mp3" type="audio/mpeg" />
+    </audio>
+
     <!-- nabvar -->
     <header class="navbar" role="banner">
-        <div class="navbar__inner">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="/" class="navbar__logo" aria-label="Moodflix — Ir al inicio">
+          <span class="logo__icon" aria-hidden="true">◈</span>
+          <span class="logo__text">Moodflix</span>
+        </a>
 
-            <!-- Logo -->
-            <a href="/" class="navbar__logo" aria-label="Moodflix — Ir al inicio">
-                <span class="logo__icon" aria-hidden="true">◈</span>
-                <span class="logo__text">Moodflix</span>
-            </a>
+        <!-- Buscador -->
+        <div class="navbar__search" role="search">
+          <label for="search-input" class="sr-only"
+            >Buscar películas o música</label
+          >
+          <input
+            id="search-input"
+            type="search"
+            class="search__input"
+            placeholder="Buscar títulos, géneros…"
+            aria-label="Buscar películas o música"
+            autocomplete="off"
+          />
+          <button class="search__btn" aria-label="Ejecutar búsqueda">
+            <svg
+              aria-hidden="true"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
 
-            <!-- Buscador -->
-            <div class="navbar__search" role="search">
-                <label for="search-input" class="sr-only">Buscar películas o música</label>
-                <input id="search-input" type="search" class="search__input" placeholder="Buscar títulos, géneros…"
-                    aria-label="Buscar películas o música" autocomplete="off" />
-                <button class="search__btn" aria-label="Ejecutar búsqueda">
-                    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Navegación desktop -->
-            <nav class="navbar__nav" aria-label="Navegación principal">
-                <ul class="nav__list" role="list">
-                    <li><a href="index.html" class="nav__link nav__link--active" aria-current="page">Inicio</a></li>
-                    <li><a href="/pages/favorites.html" class="nav__link">Favoritos</a></li>
-                    <li><a href="/pages/user.html" class="nav__link">Perfil</a></li>
-                </ul>
-            </nav>
-
-            <!-- Botón hamburguesa (mobile) -->
-            <button class="navbar__hamburger" id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false"
-                aria-label="Abrir menú de navegación">
-                <span class="hamburger__bar"></span>
-                <span class="hamburger__bar"></span>
-                <span class="hamburger__bar"></span>
-            </button>
-
-        </div><!-- /.navbar__inner -->
-
-        <!-- Menú mobile desplegable -->
-        <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil" hidden>
-            <ul class="mobile-menu__list" role="list">
-                <li><a href="index.html" class="mobile-menu__link" aria-current="page">Inicio</a></li>
-                <li><a href="/pages/favorites.html" class="mobile-menu__link">Favoritos</a></li>
-                <li><a href="/pages/user.html" class="mobile-menu__link">Perfil</a></li>
-            </ul>
+        <!-- Navegación desktop -->
+        <nav class="navbar__nav" aria-label="Navegación principal">
+          <ul class="nav__list" role="list">
+            <li>
+              <a
+                href="index.html"
+                class="nav__link nav__link--active"
+                aria-current="page"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a href="/pages/favorites.html" class="nav__link">Favoritos</a>
+            </li>
+            <li><a href="/pages/user.html" class="nav__link">Perfil</a></li>
+          </ul>
         </nav>
 
+        <!-- Botón hamburguesa (mobile) -->
+        <button
+          class="navbar__hamburger"
+          id="menu-toggle"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Abrir menú de navegación"
+        >
+          <span class="hamburger__bar"></span>
+          <span class="hamburger__bar"></span>
+          <span class="hamburger__bar"></span>
+        </button>
+      </div>
+      <!-- /.navbar__inner -->
+
+      <!-- Menú mobile desplegable -->
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil" hidden>
+        <ul class="mobile-menu__list" role="list">
+          <li>
+            <a href="index.html" class="mobile-menu__link" aria-current="page"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a href="/pages/favorites.html" class="mobile-menu__link"
+              >Favoritos</a
+            >
+          </li>
+          <li>
+            <a href="/pages/user.html" class="mobile-menu__link">Perfil</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <!-- main -->
     <main id="main-content">
+      <!-- ---- HERO / FILTROS ---- -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <!-- Fondo decorativo -->
+        <div class="hero__bg" aria-hidden="true">
+          <div class="hero__orb hero__orb--1"></div>
+          <div class="hero__orb hero__orb--2"></div>
+          <div class="hero__orb hero__orb--3"></div>
+          <div class="hero__grid-lines"></div>
+        </div>
 
-        <!-- ---- HERO / FILTROS ---- -->
-        <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Tu estado de ánimo. Tu universo.</p>
+          <h1 id="hero-heading" class="hero__title">
+            ¿Cómo te sentís<br />
+            <em>hoy</em>?
+          </h1>
+          <p class="hero__subtitle">
+            Seleccioná tu humor y el tiempo que tenés. Nosotros hacemos el
+            resto.
+          </p>
 
-            <!-- Fondo decorativo -->
-            <div class="hero__bg" aria-hidden="true">
-                <div class="hero__orb hero__orb--1"></div>
-                <div class="hero__orb hero__orb--2"></div>
-                <div class="hero__orb hero__orb--3"></div>
-                <div class="hero__grid-lines"></div>
-            </div>
+          <!-- Formulario de filtros -->
+          <form
+            class="filters"
+            aria-label="Filtros de recomendación"
+            novalidate
+          >
+            <!-- Estado de Ánimo -->
+            <fieldset class="filter-group" aria-describedby="mood-desc">
+              <legend class="filter-group__legend">
+                <span aria-hidden="true">✦</span> Estado de ánimo
+              </legend>
+              <p id="mood-desc" class="sr-only">
+                Seleccioná un estado de ánimo para personalizar tus
+                recomendaciones
+              </p>
+              <div
+                class="mood-grid"
+                role="group"
+                aria-label="Opciones de estado de ánimo"
+              >
+                <button
+                  type="button"
+                  class="mood-btn mood-btn--active"
+                  aria-pressed="true"
+                  data-mood="feliz"
+                >
+                  <span class="mood-btn__emoji" aria-hidden="true">😊</span>
+                  <span class="mood-btn__label">Feliz</span>
+                </button>
+                <button
+                  type="button"
+                  class="mood-btn"
+                  aria-pressed="false"
+                  data-mood="melancolico"
+                >
+                  <span class="mood-btn__emoji" aria-hidden="true">🌧️</span>
+                  <span class="mood-btn__label">Melancólico</span>
+                </button>
+                <button
+                  type="button"
+                  class="mood-btn"
+                  aria-pressed="false"
+                  data-mood="energetico"
+                >
+                  <span class="mood-btn__emoji" aria-hidden="true">⚡</span>
+                  <span class="mood-btn__label">Energético</span>
+                </button>
+                <button
+                  type="button"
+                  class="mood-btn"
+                  aria-pressed="false"
+                  data-mood="relajado"
+                >
+                  <span class="mood-btn__emoji" aria-hidden="true">🌙</span>
+                  <span class="mood-btn__label">Relajado</span>
+                </button>
+                <button
+                  type="button"
+                  class="mood-btn"
+                  aria-pressed="false"
+                  data-mood="inspirado"
+                >
+                  <span class="mood-btn__emoji" aria-hidden="true">✨</span>
+                  <span class="mood-btn__label">Inspirado</span>
+                </button>
+                <button
+                  type="button"
+                  class="mood-btn"
+                  aria-pressed="false"
+                  data-mood="nostalgico"
+                >
+                  <span class="mood-btn__emoji" aria-hidden="true">🎞️</span>
+                  <span class="mood-btn__label">Nostálgico</span>
+                </button>
+              </div>
+            </fieldset>
 
-            <div class="hero__content">
-                <p class="hero__eyebrow">Tu estado de ánimo. Tu universo.</p>
-                <h1 id="hero-heading" class="hero__title">
-                    ¿Cómo te sentís<br />
-                    <em>hoy</em>?
-                </h1>
-                <p class="hero__subtitle">Seleccioná tu humor y el tiempo que tenés. Nosotros hacemos el resto.</p>
+            <!-- Tiempo disponible -->
+            <fieldset class="filter-group">
+              <legend class="filter-group__legend">
+                <span aria-hidden="true">◷</span> Tiempo disponible
+              </legend>
+              <div
+                class="time-options"
+                role="group"
+                aria-label="Opciones de tiempo disponible"
+              >
+                <label class="time-label">
+                  <input
+                    class="time-radio"
+                    type="radio"
+                    name="time"
+                    value="15"
+                    aria-label="15 minutos"
+                  />
+                  <span class="time-label__pill">15 min</span>
+                </label>
+                <label class="time-label">
+                  <input
+                    class="time-radio"
+                    type="radio"
+                    name="time"
+                    value="30"
+                    aria-label="30 minutos"
+                    checked
+                  />
+                  <span class="time-label__pill">30 min</span>
+                </label>
+                <label class="time-label">
+                  <input
+                    class="time-radio"
+                    type="radio"
+                    name="time"
+                    value="60"
+                    aria-label="1 hora"
+                  />
+                  <span class="time-label__pill">1 h</span>
+                </label>
+                <label class="time-label">
+                  <input
+                    class="time-radio"
+                    type="radio"
+                    name="time"
+                    value="120"
+                    aria-label="2 horas o más"
+                  />
+                  <span class="time-label__pill">2 h+</span>
+                </label>
+              </div>
+            </fieldset>
 
-                <!-- Formulario de filtros -->
-                <form class="filters" aria-label="Filtros de recomendación" novalidate>
+            <!-- CTA -->
+            <button
+              type="submit"
+              class="cta-btn"
+              aria-label="Generar recomendaciones personalizadas"
+            >
+              <span class="cta-btn__text">¡Generar Recomendación!</span>
+              <span class="cta-btn__icon" aria-hidden="true">→</span>
+            </button>
+          </form>
+        </div>
+        <!-- /.hero__content -->
+      </section>
 
-                    <!-- Estado de Ánimo -->
-                    <fieldset class="filter-group" aria-describedby="mood-desc">
-                        <legend class="filter-group__legend">
-                            <span aria-hidden="true">✦</span> Estado de ánimo
-                        </legend>
-                        <p id="mood-desc" class="sr-only">Seleccioná un estado de ánimo para personalizar tus
-                            recomendaciones</p>
-                        <div class="mood-grid" role="group" aria-label="Opciones de estado de ánimo">
-                            <button type="button" class="mood-btn mood-btn--active" aria-pressed="true"
-                                data-mood="feliz">
-                                <span class="mood-btn__emoji" aria-hidden="true">😊</span>
-                                <span class="mood-btn__label">Feliz</span>
-                            </button>
-                            <button type="button" class="mood-btn" aria-pressed="false" data-mood="melancolico">
-                                <span class="mood-btn__emoji" aria-hidden="true">🌧️</span>
-                                <span class="mood-btn__label">Melancólico</span>
-                            </button>
-                            <button type="button" class="mood-btn" aria-pressed="false" data-mood="energetico">
-                                <span class="mood-btn__emoji" aria-hidden="true">⚡</span>
-                                <span class="mood-btn__label">Energético</span>
-                            </button>
-                            <button type="button" class="mood-btn" aria-pressed="false" data-mood="relajado">
-                                <span class="mood-btn__emoji" aria-hidden="true">🌙</span>
-                                <span class="mood-btn__label">Relajado</span>
-                            </button>
-                            <button type="button" class="mood-btn" aria-pressed="false" data-mood="inspirado">
-                                <span class="mood-btn__emoji" aria-hidden="true">✨</span>
-                                <span class="mood-btn__label">Inspirado</span>
-                            </button>
-                            <button type="button" class="mood-btn" aria-pressed="false" data-mood="nostalgico">
-                                <span class="mood-btn__emoji" aria-hidden="true">🎞️</span>
-                                <span class="mood-btn__label">Nostálgico</span>
-                            </button>
-                        </div>
-                    </fieldset>
+      <!-- grid de resultados -->
+      <section class="results" aria-labelledby="results-heading" hidden>
+        <div class="results__header">
+          <h2 id="results-heading" class="results__title">Para vos, ahora</h2>
+          <p class="results__subtitle">
+            Basado en tu estado de ánimo
+            <strong id="results-mood-label">Feliz</strong> · 30 min
+          </p>
+        </div>
 
-                    <!-- Tiempo disponible -->
-                    <fieldset class="filter-group">
-                        <legend class="filter-group__legend">
-                            <span aria-hidden="true">◷</span> Tiempo disponible
-                        </legend>
-                        <div class="time-options" role="group" aria-label="Opciones de tiempo disponible">
-                            <label class="time-label">
-                                <input class="time-radio" type="radio" name="time" value="15" aria-label="15 minutos" />
-                                <span class="time-label__pill">15 min</span>
-                            </label>
-                            <label class="time-label">
-                                <input class="time-radio" type="radio" name="time" value="30" aria-label="30 minutos"
-                                    checked />
-                                <span class="time-label__pill">30 min</span>
-                            </label>
-                            <label class="time-label">
-                                <input class="time-radio" type="radio" name="time" value="60" aria-label="1 hora" />
-                                <span class="time-label__pill">1 h</span>
-                            </label>
-                            <label class="time-label">
-                                <input class="time-radio" type="radio" name="time" value="120"
-                                    aria-label="2 horas o más" />
-                                <span class="time-label__pill">2 h+</span>
-                            </label>
-                        </div>
-                    </fieldset>
-
-                    <!-- CTA -->
-                    <button type="submit" class="cta-btn" aria-label="Generar recomendaciones personalizadas">
-                        <span class="cta-btn__text">¡Generar Recomendación!</span>
-                        <span class="cta-btn__icon" aria-hidden="true">→</span>
-                    </button>
-
-                </form>
-            </div><!-- /.hero__content -->
-        </section>
-
-        <!-- grid de resultados -->
-         <section class="results" aria-labelledby="results-heading" hidden>
-            <div class="results__header">
-                <h2 id="results-heading" class="results__title">Para vos, ahora</h2>
-                <p class="results__subtitle">Basado en tu estado de ánimo <strong id="results-mood-label">Feliz</strong>
-                    · 30
-                    min</p>
-            </div>
-
-            <ul class="cards-grid" role="list" aria-label="Recomendaciones de contenido">
-            </ul>
-        </section>
-
+        <ul
+          class="cards-grid"
+          role="list"
+          aria-label="Recomendaciones de contenido"
+        ></ul>
+      </section>
     </main>
 
     <!-- footer -->
     <footer class="footer" role="contentinfo">
-        <div class="footer__inner">
+      <div class="footer__inner">
+        <!-- Logo footer -->
+        <a
+          href="/"
+          class="footer__logo"
+          aria-label="Moodflix — volver al inicio"
+        >
+          <span class="logo__icon" aria-hidden="true">◈</span>
+          <span class="logo__text">Moodflix</span>
+        </a>
 
-            <!-- Logo footer -->
-            <a href="/" class="footer__logo" aria-label="Moodflix — volver al inicio">
-                <span class="logo__icon" aria-hidden="true">◈</span>
-                <span class="logo__text">Moodflix</span>
-            </a>
+        <!-- Links legales -->
+        <nav class="footer__nav" aria-label="Navegación legal">
+          <ul class="footer__list" role="list">
+            <li><a href="/terminos" class="footer__link">Términos</a></li>
+            <li><a href="/privacidad" class="footer__link">Privacidad</a></li>
+          </ul>
+        </nav>
 
-            <!-- Links legales -->
-            <nav class="footer__nav" aria-label="Navegación legal">
-                <ul class="footer__list" role="list">
-                    <li><a href="/terminos" class="footer__link">Términos</a></li>
-                    <li><a href="/privacidad" class="footer__link">Privacidad</a></li>
-                </ul>
-            </nav>
-
-            <!-- Copyright -->
-            <p class="footer__copy">© 2026 Moodflix — Todos los derechos reservados</p>
-
-        </div>
+        <!-- Copyright -->
+        <p class="footer__copy">
+          © 2026 Moodflix — Todos los derechos reservados
+        </p>
+      </div>
     </footer>
 
     <!-- Scripts -->
     <script src="/assets/js/main.js" type="module" defer></script>
     <script src="/assets/js/recommendation.js" type="module" defer></script>
-</body>
-
+    <script src="/assets/js/logo.js" defer></script>
+  </body>
 </html>
