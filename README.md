@@ -47,7 +47,7 @@ MoodFlix — recomendador de contenido basado en estado de ánimo y tiempo dispo
 
 ## Enlaces
 - Repositorio: https://github.com/Josu98888/MoodFlix
-- Deploy: por agregar
+- Deploy: https://mood-flix-peach.vercel.app/
 
 
 
